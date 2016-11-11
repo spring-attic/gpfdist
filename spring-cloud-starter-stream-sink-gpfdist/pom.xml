@@ -5,18 +5,18 @@
 	<parent>
 		<groupId>org.springframework.cloud.stream.app</groupId>
 		<artifactId>gpfdist-app-starters-build</artifactId>
-		<version>1.1.0.RC1</version>
+		<version>1.1.0.BUILD-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>spring-cloud-starter-stream-sink-gpfdist</artifactId>
-	<version>1.1.0.RC1</version>
+	<version>1.1.0.BUILD-SNAPSHOT</version>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud.stream.app</groupId>
 				<artifactId>gpfdist-app-dependencies</artifactId>
-				<version>1.1.0.RC1</version>
+				<version>1.1.0.BUILD-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
