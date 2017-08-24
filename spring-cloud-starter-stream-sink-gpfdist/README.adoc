@@ -10,6 +10,20 @@ No data is written into temporary files and all data is kept in stream buffers w
 to get inserted into Greenplum DB or HAWQ.  If there are no existing load sessions from Greenplum,
 the sink will block until such sessions are established.
 
+== Input
+
+==== Headers:
+
+* `Content-Type: text/plain`
+
+==== Payload:
+
+* `String`
+
+== Output
+
+N/A
+
 == Options
 
 The **$$gpfdist$$** $$sink$$ has the following options:
@@ -350,6 +364,16 @@ finish and data become visible in a database.
 == Build
 
 ```
-$ mvn clean package
+$ ./mvnw clean install -PgenerateApps
+$ cd apps
 ```
+You can find the corresponding binder based projects here. You can then cd into one one of the folders and
+build it:
+```
+$ ./mvnw clean package
+```
+
+== Examples
+
+See above. 
 
