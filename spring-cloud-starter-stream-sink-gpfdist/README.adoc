@@ -360,7 +360,6 @@ segment will complete a stream due to inactivity from upstream and to
 step away from a loading session to allow distributes session to
 finish and data become visible in a database.
 
-//end::ref-doc[]
 == Build
 
 ```
@@ -377,3 +376,4 @@ $ ./mvnw clean package
 
 See above. 
 
+//end::ref-doc[]
