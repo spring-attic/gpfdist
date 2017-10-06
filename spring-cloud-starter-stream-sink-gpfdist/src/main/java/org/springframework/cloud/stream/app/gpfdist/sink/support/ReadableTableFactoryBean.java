@@ -42,7 +42,7 @@ public class ReadableTableFactoryBean implements FactoryBean<ReadableTable>, Ini
 	private Character escape;
 	private Character quote;
 	private String[] forceQuote;
-	private String logErrorsInto;
+	private boolean logErrors;
 	private Integer segmentRejectLimit;
 	private SegmentRejectType segmentRejectType;
 
@@ -61,9 +61,8 @@ public class ReadableTableFactoryBean implements FactoryBean<ReadableTable>, Ini
 		w.setLocations(locations);
 		w.setColumns(columns);
 		w.setLike(like);
-		if (StringUtils.hasText(logErrorsInto)) {
-			w.setLogErrorsInto(logErrorsInto);
-		}
+		w.setLogErrors(logErrors);
+
 		if (segmentRejectLimit != null && segmentRejectLimit > 0) {
 			w.setSegmentRejectLimit(segmentRejectLimit);
 		}
@@ -162,21 +161,21 @@ public class ReadableTableFactoryBean implements FactoryBean<ReadableTable>, Ini
 	}
 
 	/**
-	 * Gets the log errors table.
+	 * Gets if the errors are logged
 	 *
-	 * @return the log errors table
+	 * @return the if log errors is enabled
 	 */
-	public String getLogErrorsInto() {
-		return logErrorsInto;
+	public boolean isLogErrors() {
+		return logErrors;
 	}
 
 	/**
-	 * Sets the log errors table.
+	 * Sets the if the errors should be logged.
 	 *
-	 * @param logErrorsInto the new log errors table
+	 * @param logErrors if true the errors are logged in internal tables
 	 */
-	public void setLogErrorsInto(String logErrorsInto) {
-		this.logErrorsInto = logErrorsInto;
+	public void setLogErrors(boolean logErrors) {
+		this.logErrors = logErrors;
 	}
 
 	public Character getQuote() {

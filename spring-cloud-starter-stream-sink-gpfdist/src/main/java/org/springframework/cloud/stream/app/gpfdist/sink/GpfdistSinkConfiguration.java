@@ -100,7 +100,7 @@ public class GpfdistSinkConfiguration {
 		ReadableTableFactoryBean factoryBean = new ReadableTableFactoryBean();
 		factoryBean.setControlFile(controlFile);
 		factoryBean.setDelimiter(properties.getColumnDelimiter());
-		factoryBean.setLogErrorsInto(properties.getErrorTable());
+		factoryBean.setLogErrors(properties.isLogErrors());
 		factoryBean.setSegmentReject(properties.getSegmentRejectLimit());
 		factoryBean.setSegmentRejectType(properties.getSegmentRejectType());
 		factoryBean.setNullString(properties.getNullString());
