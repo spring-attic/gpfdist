@@ -22,8 +22,8 @@ package org.springframework.cloud.stream.app.gpfdist.sink.support;
  */
 public class ReadableTable extends AbstractExternalTable {
 
-	// [LOG ERRORS INTO error_table]
-	private String logErrorsInto;
+	// [LOG ERRORS]
+	private boolean logErrors;
 
 	// SEGMENT REJECT LIMIT count
 	private Integer segmentRejectLimit;
@@ -42,12 +42,12 @@ public class ReadableTable extends AbstractExternalTable {
 		this.formatHeader = formatHeader;
 	}
 
-	public String getLogErrorsInto() {
-		return logErrorsInto;
+	public boolean isLogErrors() {
+		return logErrors;
 	}
 
-	public void setLogErrorsInto(String logErrorsInto) {
-		this.logErrorsInto = logErrorsInto;
+	public void setLogErrors(boolean logErrors) {
+		this.logErrors = logErrors;
 	}
 
 	public Integer getSegmentRejectLimit() {

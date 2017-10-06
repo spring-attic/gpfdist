@@ -34,13 +34,13 @@ public class GpfdistSinkPropertiesTests {
 		SpringApplication app = new SpringApplication(TestConfiguration.class);
 		app.setWebEnvironment(false);
 		ConfigurableApplicationContext context = app
-				.run(new String[] { "--gpfdist.errorTable=myerror",
+				.run(new String[] { "--gpfdist.logErrors=true",
 						"--gpfdist.segmentRejectLimit=1",
 						"--gpfdist.segmentRejectType=ROWS" });
 
 		GpfdistSinkProperties properties = context.getBean(GpfdistSinkProperties.class);
 		assertThat(properties, notNullValue());
-		assertThat(properties.getErrorTable(), is("myerror"));
+		assertThat(properties.isLogErrors(), is(true));
 		assertThat(properties.getSegmentRejectLimit(), is("1"));
 		assertThat(properties.getSegmentRejectType(), is(SegmentRejectType.ROWS));
 		context.close();
@@ -51,13 +51,13 @@ public class GpfdistSinkPropertiesTests {
 		SpringApplication app = new SpringApplication(TestConfiguration.class);
 		app.setWebEnvironment(false);
 		ConfigurableApplicationContext context = app
-				.run(new String[] { "--gpfdist.errorTable=myerror",
+				.run(new String[] { "--gpfdist.logErrors=true",
 						"--gpfdist.segmentRejectLimit=1",
 						"--gpfdist.segmentRejectType=percent" });
 
 		GpfdistSinkProperties properties = context.getBean(GpfdistSinkProperties.class);
 		assertThat(properties, notNullValue());
-		assertThat(properties.getErrorTable(), is("myerror"));
+		assertThat(properties.isLogErrors(), is(true));
 		assertThat(properties.getSegmentRejectLimit(), is("1"));
 		assertThat(properties.getSegmentRejectType(), is(SegmentRejectType.PERCENT));
 		context.close();

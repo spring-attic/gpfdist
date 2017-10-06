@@ -77,7 +77,7 @@ public abstract class SqlUtils {
 		buf.append(" ( ");
 		buf.append("DELIMITER '");
 		if (externalTable.getDelimiter() != null) {
-			buf.append(unicodeEscaped(externalTable.getDelimiter().charValue()));
+			buf.append(externalTable.getDelimiter().charValue());
 		}
 		else {
 			buf.append("|");
@@ -116,9 +116,8 @@ public abstract class SqlUtils {
 		}
 
 		if (externalTable.getSegmentRejectLimit() != null && externalTable.getSegmentRejectType() != null) {
-			if (externalTable.getLogErrorsInto() != null) {
-				buf.append(" LOG ERRORS INTO ");
-				buf.append(externalTable.getLogErrorsInto());
+			if (externalTable.isLogErrors()) {
+				buf.append(" LOG ERRORS ");
 			}
 			buf.append(" SEGMENT REJECT LIMIT ");
 			buf.append(externalTable.getSegmentRejectLimit());
