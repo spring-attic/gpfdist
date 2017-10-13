@@ -39,7 +39,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 
 		ReadableTableFactoryBean factory1 = new ReadableTableFactoryBean();
 		factory1.setLocations(Arrays.asList(NetworkUtils.getGPFDistUri("localhost", 1234)));
-		factory1.setLogErrorsInto("myerror");
+		factory1.setLogErrors(true);
 		factory1.setSegmentRejectLimit(2);
 		factory1.setSegmentRejectType(SegmentRejectType.ROWS);
 		factory1.afterPropertiesSet();
@@ -51,7 +51,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 		LoadConfiguration loadConfiguration = factory2.getObject();
 
 		String sql = SqlUtils.createExternalReadableTable(loadConfiguration, "xxx", null);
-		assertThat(sql, containsString("LOG ERRORS INTO myerror SEGMENT REJECT LIMIT 2 ROWS"));
+		assertThat(sql, containsString("LOG ERRORS SEGMENT REJECT LIMIT 2 ROWS"));
 		assertSql(sql);
 	}
 
@@ -64,7 +64,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 
 		ReadableTableFactoryBean factory1 = new ReadableTableFactoryBean();
 		factory1.setLocations(Arrays.asList(NetworkUtils.getGPFDistUri("localhost", 1234)));
-		factory1.setLogErrorsInto("myerror");
+		factory1.setLogErrors(true);
 		factory1.setSegmentRejectLimit(2);
 		factory1.setSegmentRejectType(SegmentRejectType.PERCENT);
 		factory1.afterPropertiesSet();
@@ -76,7 +76,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 		LoadConfiguration loadConfiguration = factory2.getObject();
 
 		String sql = SqlUtils.createExternalReadableTable(loadConfiguration, "xxx", null);
-		assertThat(sql, containsString("LOG ERRORS INTO myerror SEGMENT REJECT LIMIT 2 PERCENT"));
+		assertThat(sql, containsString("LOG ERRORS SEGMENT REJECT LIMIT 2 PERCENT"));
 		assertSql(sql);
 	}
 
@@ -89,7 +89,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 
 		ReadableTableFactoryBean factory1 = new ReadableTableFactoryBean();
 		factory1.setLocations(Arrays.asList(NetworkUtils.getGPFDistUri("localhost", 1234)));
-		factory1.setLogErrorsInto("myerror");
+		factory1.setLogErrors(true);
 		factory1.setSegmentReject("3%");
 		factory1.afterPropertiesSet();
 
@@ -100,7 +100,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 		LoadConfiguration loadConfiguration = factory2.getObject();
 
 		String sql = SqlUtils.createExternalReadableTable(loadConfiguration, "xxx", null);
-		assertThat(sql, containsString("LOG ERRORS INTO myerror SEGMENT REJECT LIMIT 3 PERCENT"));
+		assertThat(sql, containsString("LOG ERRORS SEGMENT REJECT LIMIT 3 PERCENT"));
 		assertSql(sql);
 	}
 
@@ -113,7 +113,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 
 		ReadableTableFactoryBean factory1 = new ReadableTableFactoryBean();
 		factory1.setLocations(Arrays.asList(NetworkUtils.getGPFDistUri("localhost", 1234)));
-		factory1.setLogErrorsInto("myerror");
+		factory1.setLogErrors(true);
 		factory1.setSegmentRejectLimit(2);
 		factory1.setSegmentRejectType(SegmentRejectType.ROWS);
 		// 3% overrides manually set 2 and ROWS
@@ -127,7 +127,7 @@ public class LoadConfigurationIT extends AbstractDbTests {
 		LoadConfiguration loadConfiguration = factory2.getObject();
 
 		String sql = SqlUtils.createExternalReadableTable(loadConfiguration, "xxx", null);
-		assertThat(sql, containsString("LOG ERRORS INTO myerror SEGMENT REJECT LIMIT 3 PERCENT"));
+		assertThat(sql, containsString("LOG ERRORS SEGMENT REJECT LIMIT 3 PERCENT"));
 		assertSql(sql);
 	}
 

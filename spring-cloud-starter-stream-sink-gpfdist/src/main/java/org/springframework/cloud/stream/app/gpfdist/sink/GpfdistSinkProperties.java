@@ -135,9 +135,9 @@ public class GpfdistSinkProperties {
 	private String sqlAfter;
 
 	/**
-	 * Tablename to log errors. (String, default: ``)
+	 * Enable log errors. (Boolean, default: false)
 	 */
-	private String errorTable;
+	private boolean logErrors;
 
 	/**
 	 * Error reject limit. (String, default: ``)
@@ -145,9 +145,9 @@ public class GpfdistSinkProperties {
 	private String segmentRejectLimit;
 
 	/**
-	 * Error reject type, either `rows` or `percent`. (String, default: ``)
+	 * Error reject type, either `rows` or `percent`. (String, default: `rows`)
 	 */
-	private SegmentRejectType segmentRejectType;
+	private SegmentRejectType segmentRejectType = SegmentRejectType.ROWS;
 
 	/**
 	 * Null string definition. (String, default: ``)
@@ -322,12 +322,12 @@ public class GpfdistSinkProperties {
 		this.sqlAfter = sqlAfter;
 	}
 
-	public String getErrorTable() {
-		return errorTable;
+	public boolean isLogErrors() {
+		return logErrors;
 	}
 
-	public void setErrorTable(String errorTable) {
-		this.errorTable = errorTable;
+	public void setLogErrors(boolean logErrors) {
+		this.logErrors = logErrors;
 	}
 
 	public String getSegmentRejectLimit() {

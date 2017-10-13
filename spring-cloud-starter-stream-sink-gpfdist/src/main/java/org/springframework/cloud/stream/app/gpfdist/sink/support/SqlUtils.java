@@ -116,9 +116,8 @@ public abstract class SqlUtils {
 		}
 
 		if (externalTable.getSegmentRejectLimit() != null && externalTable.getSegmentRejectType() != null) {
-			if (externalTable.getLogErrorsInto() != null) {
-				buf.append(" LOG ERRORS INTO ");
-				buf.append(externalTable.getLogErrorsInto());
+			if (externalTable.isLogErrors()) {
+				buf.append(" LOG ERRORS ");
 			}
 			buf.append(" SEGMENT REJECT LIMIT ");
 			buf.append(externalTable.getSegmentRejectLimit());
