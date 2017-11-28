@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.springframework.cloud.stream.app</groupId>
     <artifactId>gpfdist-app-dependencies</artifactId>
-    <version>1.3.0.BUILD-SNAPSHOT</version>
+    <version>1.3.0.RELEASE</version>
     <packaging>pom</packaging>
     <name>gpfdist-app-dependencies</name>
     <description>Spring Cloud Stream Gpfdist App Dependencies</description>
@@ -30,7 +30,7 @@
             <dependency>
                 <groupId>org.springframework.cloud.stream.app</groupId>
                 <artifactId>spring-cloud-starter-stream-sink-gpfdist</artifactId>
-                <version>1.3.0.BUILD-SNAPSHOT</version>
+                <version>1.3.0.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>io.projectreactor</groupId>
