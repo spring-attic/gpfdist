@@ -75,7 +75,7 @@ public abstract class SqlUtils {
 
 		// format parameters
 		buf.append(" ( ");
-		buf.append("DELIMITER '");
+		buf.append("DELIMITER E'");
 		if (externalTable.getDelimiter() != null) {
 			buf.append(unicodeEscaped(externalTable.getDelimiter().charValue()));
 		}
