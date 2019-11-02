@@ -18,7 +18,7 @@
     <properties>
         <reactor.version>2.0.8.RELEASE</reactor.version>
         <codahale.version>3.0.2</codahale.version>
-        <netty.version>4.0.27.Final</netty.version>
+        <netty.version>4.1.42.Final</netty.version>
         <postgresql.version>9.4-1201-jdbc41</postgresql.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <spring-jdbc.version>4.3.5.RELEASE</spring-jdbc.version>
